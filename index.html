@@ -1,0 +1,2501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artmarque Interior Solutions – Premier Interior Designers in Pune</title>
+  <meta name="description" content="Artmarque Interior Solutions – Renowned interior designers in Pune for residential, commercial & turnkey projects. Led by Mr. Swapnil Pawar. Fixed fees, multiple design options, on-time delivery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ────────────────────────────────────────────────── */
+    :root {
+      --ink:       #1a1814;
+      --warm:      #f5f0e8;
+      --stone:     #e8e0d0;
+      --brass:     #b08d5b;
+      --brass-lt:  #d4b483;
+      --white:     #fdfcfa;
+      --muted:     #7a7266;
+      --border:    #ddd5c3;
+
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body:    'Inter', system-ui, sans-serif;
+
+      --max: 1200px;
+      --radius: 2px;
+    }
+
+    /* ── RESET ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── UTILITY ───────────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 60px; }
+    .section-label {
+      font-family: var(--ff-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--brass);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 30px;
+      font-family: var(--ff-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--brass);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--ink); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--white); }
+    .btn-outline-light {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.5);
+      color: var(--white);
+    }
+    .btn-outline-light:hover { background: var(--white); color: var(--ink); }
+
+    /* ── TOPBAR ────────────────────────────────────────────────── */
+    .topbar {
+      background: var(--ink);
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      padding: 9px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .topbar a { color: rgba(255,255,255,.7); transition: color .2s; }
+    .topbar a:hover { color: var(--brass-lt); }
+    .topbar-left, .topbar-right { display: flex; gap: 20px; align-items: center; }
+
+    /* ── NAV ───────────────────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: inline-block; overflow: hidden; height: 48px; line-height: 0; }
+    .logo-img { height: 56px; width: auto; display: block; margin-top: -2px; object-fit: cover; object-position: top center; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      position: relative;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--brass);
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--brass); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--ink);
+      transition: all .3s;
+    }
+
+    /* ── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-left {
+      background: var(--warm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 80px;
+      position: relative;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: 60px; left: 48px;
+      width: 1px; height: 80px;
+      background: var(--brass);
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--brass);
+    }
+    .hero-desc {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-num {
+      font-family: var(--ff-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    /* Photo placeholder — replace src with your photo */
+    .hero-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .8s ease;
+    }
+    .hero-right:hover .hero-img { transform: scale(1.03); }
+    .hero-badge {
+      position: absolute;
+      bottom: 40px; left: 24px;
+      background: var(--brass);
+      color: var(--white);
+      padding: 20px 28px;
+      font-size: 12px;
+      line-height: 1.5;
+      max-width: 200px;
+    }
+    .hero-badge strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+
+    /* PHOTO PLACEHOLDER style */
+    .photo-placeholder {
+      background: linear-gradient(135deg, #d6ccc0 0%, #c4b89e 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #8a7d6a;
+      font-size: 13px;
+      letter-spacing: .05em;
+      text-align: center;
+      gap: 10px;
+    }
+    .photo-placeholder svg { opacity: .4; }
+
+    /* ── MARQUEE STRIP ─────────────────────────────────────────── */
+    .strip {
+      background: var(--ink);
+      padding: 18px 0;
+      overflow: hidden;
+    }
+    .strip-track {
+      display: flex;
+      gap: 60px;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+    .strip-item {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,.5);
+      flex-shrink: 0;
+    }
+    .strip-dot {
+      color: var(--brass);
+      font-style: normal;
+      margin: 0 4px;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── ABOUT ─────────────────────────────────────────────────── */
+    .about { padding: 100px 0; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-images {
+      position: relative;
+      height: 560px;
+    }
+    .about-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%; height: 85%;
+      object-fit: cover;
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 55%; height: 55%;
+      object-fit: cover;
+      border: 6px solid var(--white);
+    }
+    .about-gold-tag {
+      position: absolute;
+      top: 50%; left: 60%;
+      transform: translate(-50%, -50%);
+      background: var(--brass);
+      color: var(--white);
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+      font-style: italic;
+    }
+    .about-gold-tag small { font-size: .6rem; letter-spacing: .1em; font-style: normal; margin-top: 3px; }
+    .about-text p { color: var(--muted); margin-bottom: 20px; }
+    .about-checklist { margin: 32px 0; display: flex; flex-direction: column; gap: 12px; }
+    .about-check {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 14px; color: var(--ink);
+    }
+    .check-icon {
+      width: 20px; height: 20px;
+      background: var(--brass);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .check-icon svg { width: 10px; height: 10px; fill: white; }
+
+    /* ── SERVICES ──────────────────────────────────────────────── */
+    .services { background: var(--warm); padding: 100px 0; }
+    .services-header { text-align: center; margin-bottom: 60px; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--brass);
+      transition: width .4s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.08); }
+    .service-card:hover::before { width: 100%; }
+    .service-num {
+      font-family: var(--ff-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .service-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--brass); }
+    .service-name {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .service-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    /* ── PROJECTS ──────────────────────────────────────────────── */
+    .projects { padding: 100px 0; }
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .project-card:first-child {
+      grid-column: 1 / 3;
+    }
+    /* Carousel track holds stacked images */
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    /* buttons sit inside the track, above the images */
+    .car-btn { z-index: 10; }
+    .project-card:first-child .carousel-track { aspect-ratio: 16/9; }
+    .project-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity .55s ease;
+    }
+    .project-img.active { opacity: 1; }
+    /* Carousel arrow buttons */
+    .car-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: rgba(0,0,0,.52);
+      border: none;
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 22px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity .2s, background .2s;
+    }
+    .car-btn:hover { background: rgba(0,0,0,.85); opacity: 1; }
+    .car-prev { left: 10px; }
+    .car-next { right: 10px; }
+    /* Dot indicators */
+    .car-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .car-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.38);
+      transition: background .25s, transform .25s;
+    }
+    .car-dot.active { background: rgba(255,255,255,.9); transform: scale(1.25); }
+    /* Overlay */
+    .project-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px 24px 18px;
+      background: linear-gradient(to top, rgba(26,24,20,.92) 0%, transparent 100%);
+      transform: translateY(6px);
+      transition: transform .3s;
+      z-index: 4;
+    }
+    .project-card:hover .project-overlay { transform: translateY(0); }
+    /* Watermark */
+    .project-card::after {
+      content: 'Artmarque Interiors';
+      position: absolute;
+      top: 12px; right: 14px;
+      font-family: var(--ff-display);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.5);
+      text-shadow: 0 1px 4px rgba(0,0,0,.7);
+      pointer-events: none;
+      z-index: 5;
+    }
+    /* View gallery badge */
+    .project-view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--brass-lt);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .project-card:hover .project-view-btn { opacity: 1; }
+    .project-cat {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--brass-lt);
+      margin-bottom: 5px;
+    }
+    .project-name {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--white);
+    }
+    /* Image count badge */
+    .car-count {
+      position: absolute;
+      top: 12px; left: 14px;
+      background: rgba(0,0,0,.5);
+      color: rgba(255,255,255,.85);
+      font-size: 10px;
+      letter-spacing: .08em;
+      padding: 3px 8px;
+      border-radius: 20px;
+      z-index: 5;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── WHY CHOOSE ────────────────────────────────────────────── */
+    .why { background: var(--ink); padding: 100px 0; color: var(--white); }
+    .why-header { text-align: center; margin-bottom: 64px; }
+    .why-header .section-title { color: var(--white); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.08);
+    }
+    .why-card {
+      background: var(--ink);
+      padding: 48px 36px;
+      transition: background .3s;
+    }
+    .why-card:hover { background: #25221c; }
+    .why-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--brass);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      color: var(--brass);
+    }
+    .why-title {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+    .why-desc { font-size: 13.5px; color: rgba(255,255,255,.55); line-height: 1.75; }
+
+    /* ── PROCESS ───────────────────────────────────────────────── */
+    .process { padding: 100px 0; background: var(--warm); }
+    .process-header { text-align: center; margin-bottom: 64px; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: var(--border);
+    }
+    .process-step { padding: 0 24px; text-align: center; }
+    .process-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      color: var(--brass);
+      position: relative;
+      z-index: 1;
+    }
+    .process-step-title {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .process-step-desc { font-size: 13px; color: var(--muted); }
+
+    /* ── TESTIMONIALS ──────────────────────────────────────────── */
+    .testimonials { padding: 100px 0; }
+    .testimonials-header { text-align: center; margin-bottom: 60px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--warm);
+      padding: 40px 32px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--ff-display);
+      font-size: 6rem;
+      color: var(--brass);
+      opacity: .25;
+      position: absolute;
+      top: 8px; left: 24px;
+      line-height: 1;
+    }
+    .testimonial-text { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; position: relative; z-index: 1; }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .testimonial-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--stone);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-weight: 600; font-size: 13px; }
+    .testimonial-role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .stars { color: var(--brass); font-size: 12px; margin-bottom: 16px; }
+
+    /* ── STATS BANNER ──────────────────────────────────────────── */
+    .stats-banner {
+      background: var(--brass);
+      padding: 64px 0;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-top: 6px;
+    }
+    .stat-divider {
+      width: 1px; height: 60px;
+      background: rgba(255,255,255,.3);
+    }
+
+    /* ── CONTACT ───────────────────────────────────────────────── */
+    .contact { padding: 100px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-family: var(--ff-body);
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s;
+      border-radius: var(--radius);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--brass); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .contact-info { display: flex; flex-direction: column; gap: 32px; }
+    .contact-info-title {
+      font-family: var(--ff-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .contact-detail { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-icon {
+      width: 40px; height: 40px;
+      background: var(--warm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--brass);
+    }
+    .contact-detail-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .contact-detail-label { font-weight: 600; color: var(--ink); font-size: 13px; margin-bottom: 4px; }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.6);
+      padding: 64px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand .logo { margin-bottom: 16px; display: block; overflow: hidden; height: 52px; }
+    .logo-img-footer { height: 60px; mix-blend-mode: screen; filter: brightness(1.1); }
+    .footer-brand p { font-size: 13px; line-height: 1.8; max-width: 280px; }
+    .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      transition: all .2s;
+    }
+    .footer-social a:hover { border-color: var(--brass); color: var(--brass); }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul li a { font-size: 13px; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--brass-lt); }
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    /* ── FLOATING WHATSAPP ─────────────────────────────────────── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      z-index: 200;
+      transition: transform .3s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+    /* ── MOBILE NAV ────────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 99;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--ink);
+    }
+    .mobile-close {
+      position: absolute;
+      top: 28px; right: 28px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .container { padding: 0 32px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 60px 32px; }
+      .hero-right { height: 400px; }
+      .hero-badge { display: none; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-images { height: 360px; }
+
+      .services-grid,
+      .why-grid,
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .project-card:first-child { grid-column: 1 / 3; }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .stat-divider { display: none; }
+
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .services-grid,
+      .why-grid,
+      .testimonials-grid,
+      .process-steps,
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card:first-child { grid-column: auto; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .topbar { display: none; }
+      .strip-track { animation-duration: 10s; }
+
+      /* ── Reduce section vertical padding on mobile ── */
+      .about, .services, .projects,
+      .why, .process, .testimonials,
+      .contact { padding: 60px 0; }
+      .stats-banner { padding: 40px 0; }
+
+      /* ── Hero ── */
+      .hero-left { padding: 40px 20px 48px; }
+      .hero-left::before { display: none; }
+      .hero-right { height: 260px; }
+      .hero-stat-num { font-size: 1.7rem; }
+      .hero-actions { gap: 10px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-stats { padding-top: 28px; margin-top: 40px; }
+
+      /* ── About images ── */
+      .about-images { height: 260px; }
+      .about-gold-tag { width: 70px; height: 70px; font-size: 1rem; }
+
+      /* ── Projects header ── */
+      .projects-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+      /* ── Stats banner ── */
+      .stats-row { gap: 20px; }
+      .stat-num { font-size: 2.6rem; }
+
+      /* ── Process steps ── */
+      .process-step { padding: 0 8px; }
+
+      /* ── Stacked grid gaps ── */
+      .about-grid { gap: 40px; }
+      .contact-grid { gap: 40px; }
+
+      /* ── Footer ── */
+      footer { padding: 48px 0 0; }
+      .footer-grid { gap: 32px; }
+
+      /* ── Why cards ── */
+      .why-card { padding: 36px 24px; }
+
+      /* ── Service cards ── */
+      .service-card { padding: 36px 24px; }
+
+      /* ── Testimonials ── */
+      .testimonial-card { padding: 32px 24px; }
+    }
+
+    /* ── Very small screens (≤380px) ── */
+    @media (max-width: 380px) {
+      .hero-left { padding: 32px 16px 40px; }
+      .container { padding: 0 16px; }
+      .btn { padding: 12px 20px; font-size: 11px; }
+      .section-title { font-size: 1.75rem; }
+    }
+
+    /* ── HERO INLINE FORM ─────────────────────────────────────── */
+    .hero-form { margin-top: 32px; }
+    .hero-form-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: block;
+    }
+    .hero-form-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-form-row input {
+      flex: 1; min-width: 140px; padding: 13px 16px;
+      border: 1px solid var(--border); background: var(--white);
+      font-family: var(--ff-body); font-size: 14px; color: var(--ink);
+      outline: none; border-radius: var(--radius); transition: border-color .2s;
+    }
+    .hero-form-row input:focus { border-color: var(--brass); }
+    .hero-form-note { font-size: 11px; color: var(--muted); margin-top: 10px; }
+    .hero-form-secondary { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color .2s, border-color .2s; }
+    .hero-form-secondary:hover { color: var(--brass); border-color: var(--brass); }
+    #hero-success { display:none; color:var(--brass); font-size:13px; margin-top:10px; }
+
+    /* ── MEDIA COVERAGE ───────────────────────────────────────── */
+    .media { padding: 48px 0; background: var(--warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .media-inner { text-align: center; }
+    .media-label { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
+    .media-logos { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .media-logo { font-family: var(--ff-body); font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); opacity: .45; transition: opacity .2s; }
+    .media-logo:hover { opacity: .85; }
+    .media-logo span { font-style: italic; font-weight: 300; font-family: var(--ff-display); font-size: 1rem; }
+
+    /* ── VIDEO GALLERY ───────────────────────────────────────── */
+    .video-gallery { padding: 100px 0; background: var(--ink); }
+    .video-gallery .section-label { color: var(--brass-lt); }
+    .video-gallery .section-title { color: var(--white); }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .video-item {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+    }
+    .video-item video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+    .video-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.35);
+      transition: background .2s;
+    }
+    .video-play-btn svg {
+      width: 52px;
+      height: 52px;
+      fill: rgba(255,255,255,.9);
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.4));
+      transition: transform .2s;
+    }
+    .video-item:hover .video-play-btn { background: rgba(0,0,0,.15); }
+    .video-item:hover .video-play-btn svg { transform: scale(1.12); }
+    .video-item.playing .video-play-btn { display: none; }
+    .video-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: linear-gradient(transparent, rgba(0,0,0,.65));
+    }
+    @media (max-width: 900px) { .video-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .video-grid { grid-template-columns: 1fr; } }
+
+    /* ── IMAGE LIGHTBOX ──────────────────────────────────────── */
+    .img-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: rgba(0,0,0,.95);
+      align-items: center;
+      justify-content: center;
+    }
+    .img-modal.open { display: flex; }
+    .img-modal-inner {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .img-modal img {
+      max-width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 2px;
+      display: block;
+    }
+    .img-modal-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      opacity: .75;
+      z-index: 10;
+    }
+    .img-modal-close:hover { opacity: 1; }
+    .img-modal-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.08);
+      border: none;
+      color: #fff;
+      font-size: 36px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      z-index: 10;
+    }
+    .img-modal-nav:hover { background: rgba(255,255,255,.2); }
+    #img-modal-prev { left: 16px; }
+    #img-modal-next { right: 16px; }
+    .img-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-top: 14px;
+      padding: 0 4px;
+    }
+    .img-modal-cap {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.75);
+      letter-spacing: .04em;
+    }
+    .img-modal-count {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.45);
+    }
+    @media (max-width: 600px) {
+      .img-modal-inner { padding: 0 48px; }
+      #img-modal-prev { left: 4px; }
+      #img-modal-next { right: 4px; }
+      .img-modal-nav { width: 38px; height: 38px; font-size: 26px; }
+    }
+
+    /* ── VIDEO LIGHTBOX ──────────────────────────────────────── */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.92);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .video-modal.open { display: flex; }
+    .video-modal-inner {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .video-modal video {
+      width: 100%;
+      max-height: 82vh;
+      border-radius: 4px;
+      display: block;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: -44px; right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: .8;
+    }
+    .video-modal-close:hover { opacity: 1; }
+    .video-modal-title {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+
+    /* ── FAQ ──────────────────────────────────────────────────── */
+    .faq { padding: 100px 0; }
+    .faq-header { text-align: center; margin-bottom: 60px; }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; padding: 22px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; text-align: left;
+      font-family: var(--ff-body); font-size: 15px; font-weight: 500; color: var(--ink);
+      transition: color .2s;
+    }
+    .faq-question:hover { color: var(--brass); }
+    .faq-plus {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 1px solid var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--brass); font-size: 16px; line-height: 1;
+      transition: transform .3s, background .2s;
+    }
+    .faq-item.open .faq-plus { transform: rotate(45deg); background: var(--brass); color: var(--white); border-color: var(--brass); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; }
+    .faq-answer-inner { padding: 0 0 20px; font-size: 14px; color: var(--muted); line-height: 1.85; max-width: 680px; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    /* ── BUDGET CALCULATOR ────────────────────────────────────── */
+    .budget-calc { background: var(--warm); padding: 100px 0; }
+    .budget-calc-header { text-align: center; margin-bottom: 56px; }
+    .calc-wrap { display: grid; grid-template-columns: 1fr 400px; gap: 56px; align-items: start; }
+    .calc-group { margin-bottom: 32px; }
+    .calc-group-label { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; display: block; }
+    .calc-options { display: flex; flex-wrap: wrap; gap: 10px; }
+    .calc-btn {
+      padding: 10px 20px; border: 1px solid var(--border);
+      background: var(--white); font-size: 13px; font-family: var(--ff-body);
+      color: var(--ink); cursor: pointer; transition: all .2s; border-radius: var(--radius);
+    }
+    .calc-btn:hover { border-color: var(--brass); color: var(--brass); }
+    .calc-btn.active { background: var(--brass); color: var(--white); border-color: var(--brass); }
+    .calc-result {
+      background: var(--ink); color: var(--white); padding: 44px 36px;
+      position: sticky; top: 100px;
+    }
+    .calc-result-tag { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 6px; }
+    .calc-result-range { font-family: var(--ff-display); font-size: 2.6rem; font-weight: 300; color: var(--brass-lt); line-height: 1.1; margin-bottom: 6px; }
+    .calc-result-note { font-size: 11px; color: rgba(255,255,255,.4); margin-bottom: 28px; }
+    .calc-breakdown { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .calc-row { display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,.6); }
+    .calc-row span:last-child { color: var(--brass-lt); font-weight: 500; }
+    .calc-disclaimer { font-size: 10px; color: rgba(255,255,255,.3); line-height: 1.6; }
+    @media (max-width: 900px) {
+      .calc-wrap { grid-template-columns: 1fr; }
+      .calc-result { position: static; }
+    }
+    @media (max-width: 600px) {
+      .faq { padding: 60px 0; }
+      .budget-calc { padding: 60px 0; }
+      .media-logos { gap: 24px; }
+      .hero-form-row { flex-direction: column; }
+    }
+
+    /* scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── TOPBAR ─────────────────────────────────────────────────── -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:+919168535333">📞 +91 91685 35333</a>
+      <a href="mailto:swapnil@artmarque.in">✉ swapnil@artmarque.in</a>
+    </div>
+    <div class="topbar-right">
+      <span>Mon–Sat: 9:30 AM – 7:00 PM</span>
+      <a href="#contact" style="color:var(--brass-lt); font-weight:600;">Book Free Consultation →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVBAR ─────────────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo"><img src="am-logo.jpg" alt="Artmarque Interiors" class="logo-img" /></a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      </div>
+      <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</span>
+  <a href="#" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="#projects" onclick="document.getElementById('mobileMenu').classList.remove('open')">Projects</a>
+  <a href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Fast Building · Smartly Execute · Perfect Design</p>
+    <h1 class="hero-title">
+      Spaces that<br>
+      <em>speak</em> your<br>
+      story
+    </h1>
+    <p class="hero-desc">
+      Artmarque Interior Solutions brings together architecture, interior design, and construction
+      to create spaces that are uniquely yours — beautifully designed, smartly executed, always on time.
+    </p>
+    <div class="hero-form">
+      <span class="hero-form-label">Talk to a Designer — Free Consultation</span>
+      <form class="hero-form-row" onsubmit="handleHeroForm(event)">
+        <input type="text" id="hf-name" placeholder="Your Name" required />
+        <input type="tel" id="hf-phone" placeholder="Mobile Number" required />
+        <button type="submit" class="btn btn-primary">Get Started →</button>
+      </form>
+      <p class="hero-form-note">✓ No spam &nbsp;·&nbsp; We respond within 2 hours</p>
+      <p id="hero-success">✓ Thank you! We'll call you shortly.</p>
+      <a href="#projects" class="hero-form-secondary">View Our Projects →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">12+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">800+</div>
+        <div class="hero-stat-label">Projects Done</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4.9★</div>
+        <div class="hero-stat-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- 🖼 Replace src below with your hero photo -->
+    <img
+      src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80"
+      alt="Art Marque Interior Design"
+      class="hero-img"
+      onerror="this.parentElement.classList.add('photo-placeholder'); this.remove(); this.parentElement.innerHTML += '<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg><span>Add your hero photo here</span>'"
+    />
+    <div class="hero-badge">
+      <strong>Swapnil Pawar</strong>
+      Founder & Principal Designer
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE STRIP ─────────────────────────────────────────── -->
+<div class="strip">
+  <div class="strip-track" aria-hidden="true">
+    <span class="strip-item">Residential Design <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Commercial Spaces <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Modular Kitchens <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Luxury Wardrobes <span class="strip-dot">✦</span></span>
+    <span class="strip-item">False Ceilings <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Pooja Rooms <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Living Rooms <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Bedrooms <span class="strip-dot">✦</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="strip-item">Residential Design <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Commercial Spaces <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Modular Kitchens <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Luxury Wardrobes <span class="strip-dot">✦</span></span>
+    <span class="strip-item">False Ceilings <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Pooja Rooms <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Living Rooms <span class="strip-dot">✦</span></span>
+    <span class="strip-item">Bedrooms <span class="strip-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <!-- 🖼 Replace with your photos -->
+        <img
+          src="https://images.unsplash.com/photo-1618219944342-824e40a13285?w=800&q=80"
+          alt="Interior Design Project"
+          class="about-img-main photo-placeholder"
+          style="width:75%;height:85%"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80"
+          alt="Interior Design Detail"
+          class="about-img-accent photo-placeholder"
+        />
+        <div class="about-gold-tag">800+<small>PROJECTS</small></div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title" style="margin-bottom:24px">
+          Design as a<br>way of living
+        </h2>
+        <p>
+          Artmarque Interior Solutions is one of Pune's renowned interior design firms, built on a
+          simple belief: we're here to make your vision a reality — in a way that surprises and
+          delights. Under the leadership of <strong>Mr. Swapnil Pawar</strong>, our team brings
+          deep expertise across architecture, interior design, and turnkey construction.
+        </p>
+        <p>
+          We serve homeowners, businesses, and government bodies across Pune and PCMC.
+          Innovation is our heart and soul — we don't just meet expectations, we exceed them.
+        </p>
+        <div class="about-checklist">
+          <div class="about-check">
+            <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            Fixed design fees — no percentage-based surprises
+          </div>
+          <div class="about-check">
+            <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            Multiple design options until they meet your expectations
+          </div>
+          <div class="about-check">
+            <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            Assured timely completion as per agreed terms
+          </div>
+          <div class="about-check">
+            <div class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+            We accompany you to vendor showrooms for material selection
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ───────────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Services</h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="service-name">Professional Design Team</div>
+        <p class="service-desc">A dedicated team of professional interior designers assigned exclusively to your project — ensuring focused attention from start to finish.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <div class="service-name">Multiple Design Options</div>
+        <p class="service-desc">We present multiple interior design options until they fully meet your expectations and requirements — your satisfaction is non-negotiable.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div class="service-name">Fixed Design Charges</div>
+        <p class="service-desc">We charge fixed design fees — no percentage-based pricing that balloons as your budget grows. Complete clarity from day one.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="service-name">Timely Completion</div>
+        <p class="service-desc">Assured on-time delivery of every project as per the agreed terms. Our team is structured to ensure zero delays.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <div class="service-name">Material Selection</div>
+        <p class="service-desc">We accompany you to vendor showrooms for finalizing material selection — you see, touch, and choose with our expert guidance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        <div class="service-name">Assistance in Execution</div>
+        <p class="service-desc">We assist you and the contractors throughout the entire execution process — bridging design intent and on-site reality seamlessly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ───────────────────────────────────────────────── -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-header reveal">
+      <div>
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Latest Projects</h2>
+      </div>
+      <a href="#contact" class="btn btn-outline">View All Work</a>
+    </div>
+    <div class="projects-grid reveal">
+
+      <!-- 1. Asawari -->
+      <div class="project-card" data-title="Asawari Residence — Pune" data-folder="asawari" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/asawari/1.jpg" class="project-img active" alt="Asawari Residence" loading="lazy" />
+          <img src="gallery/asawari/2.jpg" class="project-img" alt="Asawari Residence" loading="lazy" />
+          <img src="gallery/asawari/3.jpg" class="project-img" alt="Asawari Residence" loading="lazy" />
+          <img src="gallery/asawari/4.jpg" class="project-img" alt="Asawari Residence" loading="lazy" />
+          <img src="gallery/asawari/5.jpg" class="project-img" alt="Asawari Residence" loading="lazy" />
+          <img src="gallery/asawari/6.jpg" class="project-img" alt="Asawari Residence" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · 3 BHK</div>
+          <div class="project-name">Asawari Residence — Pune</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 2. Celebria -->
+      <div class="project-card" data-title="Celebria — Mr. Vijay Darkonde" data-folder="celebria" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/celebria/1.jpg" class="project-img active" alt="Celebria Apartment" loading="lazy" />
+          <img src="gallery/celebria/2.jpg" class="project-img" alt="Celebria Apartment" loading="lazy" />
+          <img src="gallery/celebria/3.jpg" class="project-img" alt="Celebria Apartment" loading="lazy" />
+          <img src="gallery/celebria/4.jpg" class="project-img" alt="Celebria Apartment" loading="lazy" />
+          <img src="gallery/celebria/5.jpg" class="project-img" alt="Celebria Apartment" loading="lazy" />
+          <img src="gallery/celebria/6.jpg" class="project-img" alt="Celebria Apartment" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · Apartment</div>
+          <div class="project-name">Celebria — Mr. Vijay Darkonde</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 3. Commercial -->
+      <div class="project-card" data-title="Commercial Space — Pune" data-folder="commercial" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/commercial/1.jpg" class="project-img active" alt="Commercial Interior" loading="lazy" />
+          <img src="gallery/commercial/2.jpg" class="project-img" alt="Commercial Interior" loading="lazy" />
+          <img src="gallery/commercial/3.jpg" class="project-img" alt="Commercial Interior" loading="lazy" />
+          <img src="gallery/commercial/4.jpg" class="project-img" alt="Commercial Interior" loading="lazy" />
+          <img src="gallery/commercial/5.jpg" class="project-img" alt="Commercial Interior" loading="lazy" />
+          <img src="gallery/commercial/6.jpg" class="project-img" alt="Commercial Interior" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Commercial · Office</div>
+          <div class="project-name">Commercial Space — Pune</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 4. Majestic -->
+      <div class="project-card" data-title="Majestic Residency — Dhayri" data-folder="majestic" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/majestic/1.jpg" class="project-img active" alt="Majestic Dhayri" loading="lazy" />
+          <img src="gallery/majestic/2.jpg" class="project-img" alt="Majestic Dhayri" loading="lazy" />
+          <img src="gallery/majestic/3.jpg" class="project-img" alt="Majestic Dhayri" loading="lazy" />
+          <img src="gallery/majestic/4.jpg" class="project-img" alt="Majestic Dhayri" loading="lazy" />
+          <img src="gallery/majestic/5.jpg" class="project-img" alt="Majestic Dhayri" loading="lazy" />
+          <img src="gallery/majestic/6.jpg" class="project-img" alt="Majestic Dhayri" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · 2 BHK</div>
+          <div class="project-name">Majestic Residency — Dhayri</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 5. Dhanwate -->
+      <div class="project-card" data-title="Madhuvanti — Mr. Dhanwate" data-folder="dhanwate" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/dhanwate/1.jpg" class="project-img active" alt="Madhuvanti Dhanwate" loading="lazy" />
+          <img src="gallery/dhanwate/2.jpg" class="project-img" alt="Madhuvanti Dhanwate" loading="lazy" />
+          <img src="gallery/dhanwate/3.jpg" class="project-img" alt="Madhuvanti Dhanwate" loading="lazy" />
+          <img src="gallery/dhanwate/4.jpg" class="project-img" alt="Madhuvanti Dhanwate" loading="lazy" />
+          <img src="gallery/dhanwate/5.jpg" class="project-img" alt="Madhuvanti Dhanwate" loading="lazy" />
+          <img src="gallery/dhanwate/6.jpg" class="project-img" alt="Madhuvanti Dhanwate" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · Full Home</div>
+          <div class="project-name">Madhuvanti — Mr. Dhanwate</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 6. Somnath -->
+      <div class="project-card" data-title="Pride World City — Mr. Somnath" data-folder="somnath" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/somnath/1.jpg" class="project-img active" alt="Pride World City" loading="lazy" />
+          <img src="gallery/somnath/2.jpg" class="project-img" alt="Pride World City" loading="lazy" />
+          <img src="gallery/somnath/3.jpg" class="project-img" alt="Pride World City" loading="lazy" />
+          <img src="gallery/somnath/4.jpg" class="project-img" alt="Pride World City" loading="lazy" />
+          <img src="gallery/somnath/5.jpg" class="project-img" alt="Pride World City" loading="lazy" />
+          <img src="gallery/somnath/6.jpg" class="project-img" alt="Pride World City" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · 3 BHK</div>
+          <div class="project-name">Pride World City — Mr. Somnath</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 7. River View -->
+      <div class="project-card" data-title="River View — Mr. Nilesh Bhosle" data-folder="riverview" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/riverview/1.jpg" class="project-img active" alt="River View Residence" loading="lazy" />
+          <img src="gallery/riverview/2.jpg" class="project-img" alt="River View Residence" loading="lazy" />
+          <img src="gallery/riverview/3.jpg" class="project-img" alt="River View Residence" loading="lazy" />
+          <img src="gallery/riverview/4.jpg" class="project-img" alt="River View Residence" loading="lazy" />
+          <img src="gallery/riverview/5.jpg" class="project-img" alt="River View Residence" loading="lazy" />
+          <img src="gallery/riverview/6.jpg" class="project-img" alt="River View Residence" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · Premium</div>
+          <div class="project-name">River View — Mr. Nilesh Bhosle</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 8. Swargate -->
+      <div class="project-card" data-title="Swargate — Mr. Abhonakar" data-folder="swargate" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/swargate/1.jpg" class="project-img active" alt="Swargate Residence" loading="lazy" />
+          <img src="gallery/swargate/2.jpg" class="project-img" alt="Swargate Residence" loading="lazy" />
+          <img src="gallery/swargate/3.jpg" class="project-img" alt="Swargate Residence" loading="lazy" />
+          <img src="gallery/swargate/4.jpg" class="project-img" alt="Swargate Residence" loading="lazy" />
+          <img src="gallery/swargate/5.jpg" class="project-img" alt="Swargate Residence" loading="lazy" />
+          <img src="gallery/swargate/6.jpg" class="project-img" alt="Swargate Residence" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · Full Home</div>
+          <div class="project-name">Swargate — Mr. Abhonakar</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 9. Umakant -->
+      <div class="project-card" data-title="Pancham-D — Umakant" data-folder="umakant" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/umakant/1.jpg" class="project-img active" alt="Pancham D Residence" loading="lazy" />
+          <img src="gallery/umakant/2.jpg" class="project-img" alt="Pancham D Residence" loading="lazy" />
+          <img src="gallery/umakant/3.jpg" class="project-img" alt="Pancham D Residence" loading="lazy" />
+          <img src="gallery/umakant/4.jpg" class="project-img" alt="Pancham D Residence" loading="lazy" />
+          <img src="gallery/umakant/5.jpg" class="project-img" alt="Pancham D Residence" loading="lazy" />
+          <img src="gallery/umakant/6.jpg" class="project-img" alt="Pancham D Residence" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · Turnkey</div>
+          <div class="project-name">Pancham-D — Umakant</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+      <!-- 10. Wankhede -->
+      <div class="project-card" data-title="Madhuvanti — Mr. Wankhede" data-folder="wankhede" data-count="6">
+        <div class="carousel-track">
+          <img src="gallery/wankhede/1.jpg" class="project-img active" alt="Madhuvanti Wankhede" loading="lazy" />
+          <img src="gallery/wankhede/2.jpg" class="project-img" alt="Madhuvanti Wankhede" loading="lazy" />
+          <img src="gallery/wankhede/3.jpg" class="project-img" alt="Madhuvanti Wankhede" loading="lazy" />
+          <img src="gallery/wankhede/4.jpg" class="project-img" alt="Madhuvanti Wankhede" loading="lazy" />
+          <img src="gallery/wankhede/5.jpg" class="project-img" alt="Madhuvanti Wankhede" loading="lazy" />
+          <img src="gallery/wankhede/6.jpg" class="project-img" alt="Madhuvanti Wankhede" loading="lazy" />
+        <button class="car-btn car-prev" aria-label="Previous">&#8249;</button>
+        <button class="car-btn car-next" aria-label="Next">&#8250;</button>
+        <div class="car-dots"></div>
+        <div class="car-count">1 / 6</div>
+        </div>
+        <div class="project-overlay">
+          <div class="project-cat">Residential · Full Home</div>
+          <div class="project-name">Madhuvanti — Mr. Wankhede</div>
+          <div class="project-view-btn">View Gallery →</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── VIDEO GALLERY ──────────────────────────────────────────── -->
+<section class="video-gallery" id="videos">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <span class="section-label">Our Work in Motion</span>
+      <h2 class="section-title" style="color:var(--white)">Project Videos</h2>
+    </div>
+    <div class="video-grid reveal">
+
+      <div class="video-item">
+        <video src="videos/vid-asawari-1.mp4" preload="metadata" playsinline></video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">Asawari Residence</div>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/vid-asawari-2.mp4" preload="metadata" playsinline></video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">Asawari — Interior Walk</div>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/vid-riverview.mp4" preload="metadata" playsinline></video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">River View — Mr. Nilesh Bhosle</div>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/vid-commercial-1.mp4" preload="metadata" playsinline></video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">Inceptive Site — Commercial 2022</div>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/vid-commercial-2.mp4" preload="metadata" playsinline></video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">Commercial Project — Pune</div>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/vid-commercial-3.mp4" preload="metadata" playsinline></video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label">Commercial Interior — Pune</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE ─────────────────────────────────────────────── -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-header reveal">
+      <span class="section-label" style="color:var(--brass-lt)">Why Artmarque</span>
+      <h2 class="section-title">The Artmarque<br>Difference</h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="why-title">Fixed Design Fees</div>
+        <p class="why-desc">Unlike percentage-based pricing that balloons with upgrades, our fees are fixed upfront. No surprises, no hidden costs — ever.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="why-title">Total Transparency</div>
+        <p class="why-desc">All vendor quotes, material choices, and timelines are shared openly. You always know exactly where your money goes.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="why-title">On-Time Delivery</div>
+        <p class="why-desc">We guarantee project completion within 8–12 weeks after design finalization. Our dedicated team ensures zero delays.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="why-title">Your Choice of Vendors</div>
+        <p class="why-desc">Bring your own vendors or use ours. Compare quotes, choose the best deal, and pay them directly — total freedom.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+        </div>
+        <div class="why-title">2-Year Support</div>
+        <p class="why-desc">We don't disappear after handover. Artmarque provides 2 years of post-execution maintenance support for complete peace of mind.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="why-title">Expert Designers</div>
+        <p class="why-desc">Our team of certified interior designers brings 12+ years of experience across residential, commercial, and luxury projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS BANNER ───────────────────────────────────────────── -->
+<div class="stats-banner">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">800+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Transparent Pricing</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEDIA COVERAGE ─────────────────────────────────────────── -->
+<div class="media">
+  <div class="container">
+    <div class="media-inner reveal">
+      <p class="media-label">As Seen In</p>
+      <div class="media-logos">
+        <span class="media-logo">ANI <span>News</span></span>
+        <span class="media-logo">Zee<span>5</span></span>
+        <span class="media-logo">Business <span>Standard</span></span>
+        <span class="media-logo">Lokmat <span>Times</span></span>
+        <span class="media-logo">Daily<span>Hunt</span></span>
+        <span class="media-logo">Entrepreneur <span>India</span></span>
+        <span class="media-logo">Latestly<span></span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROCESS ────────────────────────────────────────────────── -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">From Vision to Reality</h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-circle">1</div>
+        <div class="process-step-title">Free Consultation</div>
+        <p class="process-step-desc">Share your vision, budget, and timeline. We listen, understand, and align before we design.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">2</div>
+        <div class="process-step-title">Design Concepts</div>
+        <p class="process-step-desc">Our designers present 2–3 concept directions with 3D visuals, mood boards, and material palettes.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">3</div>
+        <div class="process-step-title">Vendor & Materials</div>
+        <p class="process-step-desc">We shortlist vendors and share comparative quotes. You choose who to work with and pay them directly.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">4</div>
+        <div class="process-step-title">Execution & Handover</div>
+        <p class="process-step-desc">Our site team coordinates everything. You get a beautifully finished home in 8–12 weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Client Stories</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          Artmarque transformed our 3 BHK beyond what we imagined. The team was transparent at every step — no hidden costs, no delays. Our home is truly a dream now.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar photo-placeholder" style="width:48px;height:48px;border-radius:50%;flex-shrink:0;font-size:10px"></div>
+          <div>
+            <div class="testimonial-name">Priya Mehta</div>
+            <div class="testimonial-role">Homeowner · Wakad, Pune</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          As someone who was confused about budgets, Artmarque's fixed-fee model was a blessing. Their team guided us through every material decision with patience and expertise.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar photo-placeholder" style="width:48px;height:48px;border-radius:50%;flex-shrink:0;font-size:10px"></div>
+          <div>
+            <div class="testimonial-name">Rahul Deshmukh</div>
+            <div class="testimonial-role">Flat Owner · Baner, Pune</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          They designed our office in Kharadi in under 10 weeks. The space looks stunning, and our team morale has genuinely improved. Highly recommended for commercial projects too.
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar photo-placeholder" style="width:48px;height:48px;border-radius:50%;flex-shrink:0;font-size:10px"></div>
+          <div>
+            <div class="testimonial-name">Amit Joshi</div>
+            <div class="testimonial-role">Business Owner · Kharadi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BUDGET CALCULATOR ──────────────────────────────────────── -->
+<section class="budget-calc" id="calculator">
+  <div class="container">
+    <div class="budget-calc-header reveal">
+      <span class="section-label">Plan Your Budget</span>
+      <h2 class="section-title">Budget Calculator</h2>
+      <p style="color:var(--muted);margin-top:12px;font-size:14px">Get an instant estimate for your interior design project</p>
+    </div>
+    <div class="calc-wrap reveal">
+      <div class="calc-left">
+        <div class="calc-group" data-type="room">
+          <span class="calc-group-label">Property Type</span>
+          <div class="calc-options">
+            <button class="calc-btn" data-value="1 BHK">1 BHK</button>
+            <button class="calc-btn active" data-value="2 BHK">2 BHK</button>
+            <button class="calc-btn" data-value="3 BHK">3 BHK</button>
+            <button class="calc-btn" data-value="4 BHK">4 BHK</button>
+            <button class="calc-btn" data-value="Villa">Villa</button>
+            <button class="calc-btn" data-value="Office">Office</button>
+          </div>
+        </div>
+        <div class="calc-group" data-type="style">
+          <span class="calc-group-label">Design Style</span>
+          <div class="calc-options">
+            <button class="calc-btn" data-value="Basic">Basic</button>
+            <button class="calc-btn active" data-value="Standard">Standard</button>
+            <button class="calc-btn" data-value="Premium">Premium</button>
+            <button class="calc-btn" data-value="Luxury">Luxury</button>
+          </div>
+        </div>
+        <div class="calc-group" data-type="scope">
+          <span class="calc-group-label">Scope of Work</span>
+          <div class="calc-options">
+            <button class="calc-btn" data-value="Single Room">Single Room</button>
+            <button class="calc-btn active" data-value="Full Home">Full Home</button>
+            <button class="calc-btn" data-value="Kitchen Only">Kitchen Only</button>
+            <button class="calc-btn" data-value="Turnkey">Turnkey</button>
+          </div>
+        </div>
+      </div>
+      <div class="calc-result">
+        <p class="calc-result-tag">Estimated Budget Range</p>
+        <div class="calc-result-range" id="calcRange">₹7.5L – ₹9.5L</div>
+        <p class="calc-result-note">Indicative estimate · Final quote after consultation</p>
+        <div class="calc-breakdown">
+          <div class="calc-row"><span>Design Fee (Fixed)</span><span id="calcDesignFee">₹48K</span></div>
+          <div class="calc-row"><span>Execution &amp; Labour</span><span id="calcExecution">₹5.6L – ₹7.1L</span></div>
+          <div class="calc-row"><span>Furniture &amp; Décor</span><span id="calcFurniture">₹1.5L – ₹1.9L</span></div>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get Exact Quote →</a>
+        <p class="calc-disclaimer" style="margin-top:14px">* Estimates vary based on material grade, site conditions & market rates. Book a free consultation for a detailed quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────────────────── -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How much does interior design cost in Pune?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">Interior design costs in Pune typically range from ₹350 to ₹2,500+ per sq. ft. depending on the design style (basic to luxury) and scope of work. At Artmarque, we charge a fixed design fee — not a percentage of the project cost — so your fee stays the same whether you upgrade materials or not. Use our Budget Calculator above for a quick estimate.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does a full home interior project take?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">A typical full-home interior project takes 8–12 weeks from design finalization to handover. The design phase (concepts, 3D visuals, approvals) takes 2–3 weeks. Execution depends on scope — a modular kitchen can be done in 3–4 weeks, while a full 3 BHK turnkey project usually takes 8–10 weeks. We provide a detailed timeline at the start of every project.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you charge a percentage of the total project cost?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">No — and this is one of our biggest differentiators. Most designers charge 10–15% of the project cost as their fee, which means the more you spend on materials, the more they earn. We charge a fixed design fee agreed upfront. This means you're free to choose premium materials without worrying about inflated designer fees.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I use my own contractors and vendors?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">Absolutely. You're free to bring your own vendors or use ours. We share comparative quotes from multiple vendors transparently so you can choose who to work with and pay them directly. This ensures you get the best value with zero hidden margins on our end.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you provide 3D visualizations before execution?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">Yes. Every project includes 3D renders and mood boards so you can visualize the final space before a single nail is hammered. We present 2–3 design concept directions and iterate until you're 100% happy. Execution only begins after your explicit approval.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Which areas in Pune do you serve?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">We serve all of Pune and PCMC — including Wakad, Baner, Aundh, Hinjewadi, Kharadi, Viman Nagar, Kothrud, Karve Nagar, Chinchwad, Pimpri, Ravet, Pimple Saudagar, and Hadapsar. If your location isn't listed, reach out — we likely cover it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What post-completion support do you provide?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p class="faq-answer-inner">We offer 2 years of post-execution maintenance support. If anything installed by our team needs attention — a cabinet hinge, a paint touch-up, a fixture issue — we handle it. Most designers disappear after handover; we stay available.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title" style="margin-bottom:32px">Start Your<br>Design Journey</h2>
+        <div class="contact-info">
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-text"><a href="tel:+919168535333">+91 91685 35333</a> &nbsp;·&nbsp; <a href="tel:+918208058504">+91 82080 58504</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Email</div>
+              <div class="contact-detail-text"><a href="mailto:swapnil@artmarque.in">swapnil@artmarque.in</a></div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Studio Address</div>
+              <div class="contact-detail-text">S.No. 16, Maha-E-Seva Kendra Lane,<br>Sinhgad Rd, opp. Sawali Dhaba,<br>near Nanded Fata, Pune – 411068</div>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Studio Hours</div>
+              <div class="contact-detail-text">Monday – Saturday: 9:30 AM – 7:00 PM<br>Sunday: Closed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Mobile Number</label>
+              <input type="tel" id="phone" placeholder="+91 91685 35333" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="rahul@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="project">Project Type</label>
+            <select id="project">
+              <option value="">Select a service…</option>
+              <option>Residential Interior Design</option>
+              <option>Commercial Interior Design</option>
+              <option>Modular Kitchen</option>
+              <option>Wardrobe & Storage</option>
+              <option>False Ceiling & Lighting</option>
+              <option>Turnkey Project</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your project</label>
+            <textarea id="message" placeholder="Size of the space, your style preferences, budget range…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Send Enquiry →
+          </button>
+          <p id="form-success" style="display:none;color:var(--brass);font-size:13px;text-align:center;margin-top:8px;">
+            ✓ Thank you! Our team will contact you within 24 hours.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo logo-footer"><img src="am-logo.jpg" alt="Artmarque Interiors" class="logo-img logo-img-footer" /></span>
+        <p>Renowned interior design firm in Pune — architecture, interior design & turnkey construction. Led by Mr. Swapnil Pawar. Fixed fees, multiple options, on-time delivery.</p>
+        <div class="footer-social">
+          <a href="#" title="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" title="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" title="YouTube"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+          <a href="#" title="Pinterest"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Residential Design</a></li>
+          <li><a href="#services">Commercial Design</a></li>
+          <li><a href="#services">Modular Kitchens</a></li>
+          <li><a href="#services">Wardrobes</a></li>
+          <li><a href="#services">False Ceilings</a></li>
+          <li><a href="#services">Turnkey Projects</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#projects">Our Projects</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#testimonials">Client Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>We Serve</h4>
+        <ul>
+          <li><a href="#">Wakad</a></li>
+          <li><a href="#">Baner & Aundh</a></li>
+          <li><a href="#">Hinjewadi</a></li>
+          <li><a href="#">Kharadi</a></li>
+          <li><a href="#">Chinchwad & PCMC</a></li>
+          <li><a href="#">Kothrud & Karve Nagar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Artmarque Interior Solutions · artmarque.in · All rights reserved.</span>
+      <span>Privacy Policy · Terms & Conditions</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP BUTTON ─────────────────────────────────────────── -->
+<a class="whatsapp-float" href="https://wa.me/919168535333?text=Hi%2C%20I%27m%20interested%20in%20interior%20design%20services" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Contact form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    const data = new FormData();
+    data.append('source',  'Contact Form');
+    data.append('name',    document.getElementById('name').value);
+    data.append('phone',   document.getElementById('phone').value);
+    data.append('email',   document.getElementById('email').value);
+    data.append('project', document.getElementById('project').value);
+    data.append('message', document.getElementById('message').value);
+    fetch('mail.php', { method: 'POST', body: data })
+      .then(r => r.json())
+      .then(res => {
+        const msg = document.getElementById('form-success');
+        if (res.success) {
+          msg.style.color = 'var(--brass)';
+          msg.textContent = '✓ Thank you! Our team will contact you within 24 hours.';
+        } else {
+          msg.style.color = '#c0392b';
+          msg.textContent = '✗ Something went wrong. Please call us at +91 91685 35333.';
+        }
+        msg.style.display = 'block';
+        e.target.reset();
+        btn.disabled = false;
+        btn.textContent = 'Send Enquiry →';
+        setTimeout(() => { msg.style.display = 'none'; }, 7000);
+      })
+      .catch(() => {
+        const msg = document.getElementById('form-success');
+        msg.style.color = '#c0392b';
+        msg.textContent = '✗ Network error. Please call us at +91 91685 35333.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send Enquiry →';
+      });
+  }
+
+  // Hero inline form
+  function handleHeroForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    const data = new FormData();
+    data.append('source', 'Hero Form');
+    data.append('name',   document.getElementById('hf-name').value);
+    data.append('phone',  document.getElementById('hf-phone').value);
+    fetch('mail.php', { method: 'POST', body: data })
+      .then(r => r.json())
+      .then(res => {
+        const msg = document.getElementById('hero-success');
+        if (res.success) {
+          msg.style.color = '';
+          msg.textContent = '✓ Thank you! We\'ll call you shortly.';
+        } else {
+          msg.style.color = '#c0392b';
+          msg.textContent = '✗ Something went wrong. Please call +91 91685 35333.';
+        }
+        msg.style.display = 'block';
+        e.target.reset();
+        btn.disabled = false;
+        btn.textContent = 'Get Started →';
+        setTimeout(() => { msg.style.display = 'none'; }, 5000);
+      })
+      .catch(() => {
+        const msg = document.getElementById('hero-success');
+        msg.style.color = '#c0392b';
+        msg.textContent = '✗ Network error. Please call +91 91685 35333.';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Get Started →';
+      });
+  }
+
+  // ── Project carousel ────────────────────────────────────────
+  document.querySelectorAll('.project-card').forEach(function(card) {
+    var imgs   = Array.from(card.querySelectorAll('.project-img'));
+    var dotsEl = card.querySelector('.car-dots');
+    var countEl= card.querySelector('.car-count');
+    var n      = imgs.length;
+    var cur    = 0;
+    if (!n) return;
+
+    // build dots
+    for (var k = 0; k < n; k++) {
+      var d = document.createElement('span');
+      d.className = k === 0 ? 'car-dot active' : 'car-dot';
+      dotsEl.appendChild(d);
+    }
+    var dots = dotsEl.querySelectorAll('.car-dot');
+
+    function goTo(idx) {
+      imgs[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (idx + n) % n;
+      imgs[cur].classList.add('active');
+      dots[cur].classList.add('active');
+      countEl.textContent = (cur + 1) + ' / ' + n;
+    }
+
+    var prevBtn = card.querySelector('.car-prev');
+    var nextBtn = card.querySelector('.car-next');
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); goTo(cur - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); goTo(cur + 1); });
+
+    // tap/click anywhere on card → open lightbox
+    card.addEventListener('click', function(e) {
+      if (e.target.closest && e.target.closest('.car-btn')) return;
+      var srcs = imgs.map(function(img){ return img.src; });
+      openImgLightbox(srcs, cur, card.dataset.title || '');
+    });
+  });
+
+  // ── Image lightbox ───────────────────────────────────────────
+  var imgModal = document.getElementById('img-modal');
+  var imgEl    = document.getElementById('img-modal-img');
+  var capEl    = document.getElementById('img-modal-cap');
+  var cntEl    = document.getElementById('img-modal-count');
+  var lbImgs   = [];
+  var lbCur    = 0;
+
+  function openImgLightbox(srcs, idx, title) {
+    lbImgs = srcs; lbCur = idx;
+    imgEl.src = srcs[idx];
+    capEl.textContent = title;
+    cntEl.textContent = (idx + 1) + ' / ' + srcs.length;
+    imgModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeImgLightbox() {
+    imgModal.classList.remove('open');
+    imgEl.src = '';
+    document.body.style.overflow = '';
+  }
+  function lbStep(dir) {
+    lbCur = (lbCur + dir + lbImgs.length) % lbImgs.length;
+    imgEl.src = lbImgs[lbCur];
+    cntEl.textContent = (lbCur + 1) + ' / ' + lbImgs.length;
+  }
+
+  if (imgModal) {
+    document.getElementById('img-modal-close').addEventListener('click', closeImgLightbox);
+    document.getElementById('img-modal-prev').addEventListener('click', function(e){ e.stopPropagation(); lbStep(-1); });
+    document.getElementById('img-modal-next').addEventListener('click', function(e){ e.stopPropagation(); lbStep(1); });
+    imgModal.addEventListener('click', function(e){ if (e.target === imgModal) closeImgLightbox(); });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (!imgModal || !imgModal.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  lbStep(-1);
+    if (e.key === 'ArrowRight') lbStep(1);
+    if (e.key === 'Escape')     closeImgLightbox();
+  });
+
+  // Video lightbox
+  const modal      = document.getElementById('video-modal');
+  const modalVideo = document.getElementById('modal-video');
+  const modalTitle = document.getElementById('modal-title');
+
+  document.querySelectorAll('.video-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const src   = item.querySelector('video').src;
+      const label = item.querySelector('.video-label').textContent;
+      modalVideo.src = src;
+      modalTitle.textContent = label;
+      modal.classList.add('open');
+      modalVideo.play();
+    });
+  });
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function closeModal() {
+    modalVideo.pause();
+    modalVideo.src = '';
+    modal.classList.remove('open');
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Budget Calculator
+  const calcRates = {
+    room:  { '1 BHK': 0.6, '2 BHK': 1, '3 BHK': 1.5, '4 BHK': 2.1, 'Villa': 3.2, 'Office': 1.3 },
+    style: { 'Basic': 600000, 'Standard': 900000, 'Premium': 1400000, 'Luxury': 2200000 },
+    scope: { 'Single Room': 0.25, 'Full Home': 1, 'Kitchen Only': 0.2, 'Turnkey': 1.2 }
+  };
+  const calcState = { room: '2 BHK', style: 'Standard', scope: 'Full Home' };
+
+  function fmtINR(n) {
+    if (n >= 10000000) return '₹' + (n / 10000000).toFixed(1) + ' Cr';
+    if (n >= 100000)   return '₹' + (n / 100000).toFixed(1) + 'L';
+    return '₹' + Math.round(n / 1000) + 'K';
+  }
+
+  function updateCalc() {
+    const base = calcRates.style[calcState.style] * calcRates.room[calcState.room] * calcRates.scope[calcState.scope];
+    const lo = Math.round(base * 0.88 / 50000) * 50000;
+    const hi = Math.round(base * 1.18 / 50000) * 50000;
+    document.getElementById('calcRange').textContent       = fmtINR(lo) + ' – ' + fmtINR(hi);
+    document.getElementById('calcDesignFee').textContent   = fmtINR(base * 0.07) + ' (Fixed)';
+    document.getElementById('calcExecution').textContent   = fmtINR(lo * 0.72) + ' – ' + fmtINR(hi * 0.72);
+    document.getElementById('calcFurniture').textContent   = fmtINR(lo * 0.18) + ' – ' + fmtINR(hi * 0.18);
+  }
+
+  document.querySelectorAll('.calc-group').forEach(group => {
+    group.querySelectorAll('.calc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.calc-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        calcState[group.dataset.type] = btn.dataset.value;
+        updateCalc();
+      });
+    });
+  });
+
+  updateCalc();
+
+  // Sticky navbar shadow
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    nav.style.boxShadow = window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,.08)' : 'none';
+  });
+}); // end DOMContentLoaded
+</script>
+
+<!-- modals -->
+
+<!-- Image Lightbox Modal -->
+<div class="img-modal" id="img-modal">
+  <button class="img-modal-close" id="img-modal-close">&#x2715;</button>
+  <button class="img-modal-nav" id="img-modal-prev">&#8249;</button>
+  <div class="img-modal-inner">
+    <img id="img-modal-img" src="" alt="" />
+    <div class="img-modal-footer">
+      <span class="img-modal-cap" id="img-modal-cap"></span>
+      <span class="img-modal-count" id="img-modal-count"></span>
+    </div>
+  </div>
+  <button class="img-modal-nav" id="img-modal-next">&#8250;</button>
+</div>
+
+<!-- Video Lightbox Modal -->
+<div class="video-modal" id="video-modal">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" id="modal-close">&#x2715;</button>
+    <video id="modal-video" controls playsinline></video>
+    <div class="video-modal-title" id="modal-title"></div>
+  </div>
+</div>
+</body>
+</html>
