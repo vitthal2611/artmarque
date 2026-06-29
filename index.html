@@ -648,20 +648,29 @@
     .clientele-header { text-align: center; margin-bottom: 48px; }
     .clientele-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 14px;
     }
     .clientele-item {
-      padding: 16px 20px;
+      padding: 16px;
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 13.5px;
-      color: var(--ink);
-      text-align: center;
-      background: var(--warm);
-      transition: border-color .2s, transform .2s;
+      border-radius: 8px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 3 / 2;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
     }
-    .clientele-item:hover { border-color: var(--brass); transform: translateY(-2px); }
+    .clientele-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(.75);
+      transition: filter .2s;
+    }
+    .clientele-item:hover { border-color: var(--brass); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+    .clientele-item:hover img { filter: none; }
 
     /* ── TESTIMONIALS ──────────────────────────────────────────── */
     .testimonials { padding: 100px 0; }
@@ -881,6 +890,7 @@
       .hero-left { padding: 60px 32px; }
       .hero-right { height: 400px; }
       .hero-badge { display: none; }
+      .clientele-grid { grid-template-columns: repeat(4, 1fr); }
 
       .about-grid,
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -907,8 +917,8 @@
       .why-grid,
       .testimonials-grid,
       .process-steps,
-      .clientele-grid,
       .projects-grid { grid-template-columns: 1fr; }
+      .clientele-grid { grid-template-columns: repeat(3, 1fr); }
       .project-card:first-child { grid-column: auto; }
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .footer-grid { grid-template-columns: 1fr; }
@@ -1917,16 +1927,39 @@
       <h2 class="section-title">Our Clientele</h2>
     </div>
     <div class="clientele-grid reveal">
-      <div class="clientele-item">Mr. Swapnil Pawar — Asawari Residence, Pune</div>
-      <div class="clientele-item">Mr. Vijay Darkonde — Celebria</div>
-      <div class="clientele-item">Commercial Space, Pune</div>
-      <div class="clientele-item">Majestic Residency, Dhayri</div>
-      <div class="clientele-item">Mr. Dhanwate — Madhuvanti</div>
-      <div class="clientele-item">Mr. Somnath — Pride World City</div>
-      <div class="clientele-item">Mr. Nilesh Bhosle — River View</div>
-      <div class="clientele-item">Mr. Abhonakar — Swargate</div>
-      <div class="clientele-item">Mr. Umakant — Pancham-D</div>
-      <div class="clientele-item">Mr. Wankhede — Madhuvanti</div>
+      <div class="clientele-item"><img src="logos/bosch.png" alt="Bosch" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/hella.png" alt="Hella" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/atlas-copco.png" alt="Atlas Copco" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/phoenix-marketcity.png" alt="Phoenix Marketcity" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/panchshil.png" alt="Panchshil" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/faasos.png" alt="Faasos" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/madhavbaug.png" alt="Madhavbaug" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/progenesis.png" alt="Progenesis Fertility Center" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/espressif.png" alt="Espressif" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/jendamark.png" alt="Jendamark" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/dandekar-brothers.png" alt="Dandekar Brothers" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/shirodkar-preci.png" alt="Shirodkar Preci Comp" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/ukl.png" alt="Uni Klinger Limited" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/blackhat-hospitality.png" alt="Blackhat Hospitality" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/tapovan-auto-tech.png" alt="Tapovan Auto Tech" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/gadre.png" alt="Gadré" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/mp-group.png" alt="MP Group" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/magic.png" alt="Magic Software" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/konnet.png" alt="Konnet" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/texol.png" alt="Texol" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/kupsa-coatings.png" alt="Kupsa Coatings" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/windmill.png" alt="Windmill Smart Solutions" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/visotec.png" alt="Visotec" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/webzymes.png" alt="Webzymes Technologies" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/dataction.png" alt="Dataction" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/corp-aid.png" alt="Corp Aid" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/cowork-io.png" alt="CoWork.io" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/brainlines.png" alt="Brainlines Solutions" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/e-emphasys.png" alt="e-Emphasys" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/senses.png" alt="Senses" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/dib.png" alt="Digital Info Bytes" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/kashvi-consultant.png" alt="Kashvi Consultant" loading="lazy" /></div>
+      <div class="clientele-item"><img src="logos/sixteen-sixtyfour.png" alt="Sixteen by Sixty-four Media" loading="lazy" /></div>
     </div>
   </div>
 </section>
