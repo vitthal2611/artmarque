@@ -643,6 +643,26 @@
     }
     .process-step-desc { font-size: 13px; color: var(--muted); }
 
+    /* ── CLIENTELE ─────────────────────────────────────────────── */
+    .clientele { padding: 80px 0; background: var(--white); }
+    .clientele-header { text-align: center; margin-bottom: 48px; }
+    .clientele-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .clientele-item {
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13.5px;
+      color: var(--ink);
+      text-align: center;
+      background: var(--warm);
+      transition: border-color .2s, transform .2s;
+    }
+    .clientele-item:hover { border-color: var(--brass); transform: translateY(-2px); }
+
     /* ── TESTIMONIALS ──────────────────────────────────────────── */
     .testimonials { padding: 100px 0; }
     .testimonials-header { text-align: center; margin-bottom: 60px; }
@@ -887,6 +907,7 @@
       .why-grid,
       .testimonials-grid,
       .process-steps,
+      .clientele-grid,
       .projects-grid { grid-template-columns: 1fr; }
       .project-card:first-child { grid-column: auto; }
       .hero-stats { gap: 20px; flex-wrap: wrap; }
@@ -896,7 +917,7 @@
 
       /* ── Reduce section vertical padding on mobile ── */
       .about, .services, .projects,
-      .why, .process, .testimonials,
+      .why, .process, .testimonials, .clientele,
       .contact { padding: 60px 0; }
       .stats-banner { padding: 40px 0; }
 
@@ -1884,6 +1905,28 @@
         <div class="process-step-title">Execution & Handover</div>
         <p class="process-step-desc">Our site team coordinates everything. You get a beautifully finished home in 8–12 weeks.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLIENTELE ──────────────────────────────────────────────── -->
+<section class="clientele" id="clientele">
+  <div class="container">
+    <div class="clientele-header reveal">
+      <span class="section-label">Trusted By</span>
+      <h2 class="section-title">Our Clientele</h2>
+    </div>
+    <div class="clientele-grid reveal">
+      <div class="clientele-item">Mr. Swapnil Pawar — Asawari Residence, Pune</div>
+      <div class="clientele-item">Mr. Vijay Darkonde — Celebria</div>
+      <div class="clientele-item">Commercial Space, Pune</div>
+      <div class="clientele-item">Majestic Residency, Dhayri</div>
+      <div class="clientele-item">Mr. Dhanwate — Madhuvanti</div>
+      <div class="clientele-item">Mr. Somnath — Pride World City</div>
+      <div class="clientele-item">Mr. Nilesh Bhosle — River View</div>
+      <div class="clientele-item">Mr. Abhonakar — Swargate</div>
+      <div class="clientele-item">Mr. Umakant — Pancham-D</div>
+      <div class="clientele-item">Mr. Wankhede — Madhuvanti</div>
     </div>
   </div>
 </section>
